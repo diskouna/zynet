@@ -184,6 +184,15 @@ module neuron #(parameter layerNo=0,neuronNo=0,numWeight=784,dataWidth=16,sigmoi
 			.out(out)
 		);
 		end
+		else if(actType == "elu")
+		begin
+		//Instantiation of ROM for sigmoid
+			ELU_ROM #(.inWidth(sigmoidSize),.dataWidth(dataWidth)) s1(
+			.clk(clk),
+			.x(sum[2*dataWidth-1-:sigmoidSize]),
+			.out(out)
+		);
+		end
 		else
 		begin:ReLUinst
 			ReLU #(.dataWidth(dataWidth),.weightIntWidth(weightIntWidth)) s1 (

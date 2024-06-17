@@ -3,6 +3,10 @@ from zynet import genWegitsAndBias
 import os
 from zynet import xilinxUtils
 
+
+# Supported layer type  ;
+#  - flatten
+#  - Dense 
 class layer:
     def __init__(self,type="flatten",numNeurons=0,activation=""):
         self.type = type
@@ -13,7 +17,8 @@ class layer:
         return self.numNeurons
     def getActivation(self):
         return self.activation
-        
+
+# List of layers        
 class model:
     def __init__(self):
         self.numLayers = 0
@@ -24,7 +29,15 @@ class model:
     def getNumLayers(self):
         return self.numLayers
     def compile(self,pretrained='No',weights="",biases="",dataWidth=16,sigmoidSize=5,weightIntSize=1,inputIntSize=4):
-        gen_nn.gen_nn(self.numLayers,self.layers,dataWidth,pretrained=pretrained,weights=weights,biases=biases,sigmoidSize=sigmoidSize,weightIntSize=weightIntSize,inputIntSize=inputIntSize)
+        gen_nn.gen_nn(self.numLayers,
+                      self.layers, 
+                      dataWidth,
+                      pretrained=pretrained,
+                      weights=weights,
+                      biases=biases,
+                      sigmoidSize=sigmoidSize,
+                      weightIntSize=weightIntSize,
+                      inputIntSize=inputIntSize)
         if pretrained=='Yes':
             genWegitsAndBias.genWegitsAndBias(dataWidth,dataWidth-weightIntSize,dataWidth-weightIntSize-inputIntSize,weights,biases)
     

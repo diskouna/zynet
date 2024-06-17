@@ -224,3 +224,10 @@ def sigmoid(x):
         return 1 / (1+math.exp(-x))
     except:
         return 0
+
+# Exponential Linear Unit
+def elu(x, alpha):
+    if x >=0:
+        return x
+    return alpha*(math.exp(x) - 1)
+
