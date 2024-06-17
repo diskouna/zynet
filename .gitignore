@@ -1,0 +1,11 @@
+# Vivado
+*.jou
+*.log
+*.xpr
+*.hbs
+*.hw
+.Xil
+ 
+# VIM
+*.swp
+
