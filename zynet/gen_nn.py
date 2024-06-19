@@ -32,6 +32,7 @@ def writeIncludeFile(pretrained,numDenseLayers,dataWidth,layers,sigmoidSize,weig
     copyfile(path.join(path.dirname(__file__), 'db/neuron.v'), sourceFilePath+'neuron.v')
     copyfile(path.join(path.dirname(__file__), 'db/relu.v'), sourceFilePath+'relu.v')
     copyfile(path.join(path.dirname(__file__), 'db/Sig_ROM.v'), sourceFilePath+'Sig_ROM.v')
+    copyfile(path.join(path.dirname(__file__), 'db/ELU_ROM.v'), sourceFilePath+'ELU_ROM.v')
     copyfile(path.join(path.dirname(__file__), 'db/Weight_Memory.v'), sourceFilePath+'Weight_Memory.v')
     
 def genLayer(layerNum,numNeurons,actType):
